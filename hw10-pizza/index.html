@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Pizza</title>
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <style>
+        h4 {
+            margin-top: 20px;
+        }
+        .description {
+            margin-top: 10px;
+        }
+        .price {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Піца: <span class="pizzaName">Noname</span> </h2>
+        <form action="" id="formOrder">
+            <div class="row">
+                <div class="col">
+                    <select class="form-select">
+                      
+                    </select>
+                </div>
+                
+            </div>
+            <div class="description">
+                Склад: <span class="descrip">...</span>  
+            </div>
+
+            <h4 class="additiv">Добавки</h4>
+           
+            <h4 class="deliv">Доставка</h4>
+
+            <div class="price">
+                Вартість: <span class="amount">0 грн</span> 
+            </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#thankYou">Замовити</button>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="thankYou" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+            Дякуємо за замовлення !
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeBtn">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
