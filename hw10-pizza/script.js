@@ -23,7 +23,7 @@ window.onload = () => {
             id: 3
         },
         {
-            text: 'Гиганська',
+            text: 'Гігантська',
             price: 500,
             id: 4
         }
@@ -70,7 +70,7 @@ window.onload = () => {
     for (let i = 1; i < sizes.length; i++) {
         let option = document.createElement('option');
         option.setAttribute('value', i);
-        option.innerText = sizes[i].text;
+        option.innerText = `${sizes[i].text} - ${sizes[i].price} грн.`;
         formSelect.appendChild(option);
     }
     
