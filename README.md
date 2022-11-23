@@ -8,5 +8,5 @@
 [homework 7](https://dimkagrek.github.io/Fe-pro-270922/hw7/ "to see homework 7")  
 [homework 8](https://dimkagrek.github.io/Fe-pro-270922/hw8/ "to see homework 8")  
 [homework 9](https://dimkagrek.github.io/Fe-pro-270922/hw9/ "to see homework 9")  
-[homework 10](https://dimkagrek.github.io/Fe-pro-270922/hw10/ "to see homework 10")
+[homework 10](https://dimkagrek.github.io/Fe-pro-270922/hw10/ "to see homework 10")  
 [homework 10-pizza](https://dimkagrek.github.io/Fe-pro-270922/hw10-pizza/ "to see homework 10 pizza")  
