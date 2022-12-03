@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 11 - 04</title>
+    <script>
+        window.onload = () => {
+            console.log(window.sessionStorage.keyColor);
+           
+            let body = document.querySelector('body');
+            let clBody = document.querySelector('#cl-body'); 
+            if (window.sessionStorage.keyColor != undefined) {
+                body.style.backgroundColor = window.sessionStorage.keyColor;
+                clBody.value = window.sessionStorage.keyColor;
+            }
+            clBody.oninput = function() {
+                body.style.backgroundColor = clBody.value;
+                window.sessionStorage.keyColor = clBody.value;
+                console.log(window.sessionStorage.keyColor);
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Choose your body color:</p>
+    <div>
+        <input type="color" id="cl-body" name="cl-body"
+                value="#ffffff">
+        <label for="cl-body">Body</label>
+    </div>
+</body>
+</html>

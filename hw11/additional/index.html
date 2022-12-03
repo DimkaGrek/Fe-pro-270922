@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 11 - additional</title>
+    <script>
+        window.onload = () => {
+            let noLogin = document.querySelector('.noLogin');
+            let unLogin = document.querySelector('.unLogin');
+            let login = document.getElementById('login');
+            let password = document.getElementById('password');
+            let btnLogin = document.getElementById('btnLogin');
+            let logout = document.getElementById('logout');
+            let patternLogin = /^\w{2,}$/;
+            let patternPass = /^1234$/;
+            console.log(window.sessionStorage.isLogin);
+            if (window.sessionStorage.isLogin === "true") {
+               unLogin.style.display = 'block';
+            } else {
+                noLogin.style.display = 'block';
+            }
+            logout.onclick = function() {
+                noLogin.style.display = 'block';
+                unLogin.style.display = 'none';
+                window.sessionStorage.isLogin = 'false';
+            }
+            btnLogin.onclick = function(e) {
+                e.preventDefault();
+                let isLogin = true;
+                if (!patternLogin.test(login.value)) {
+                    login.style.backgroundColor = 'red';
+                    isLogin = false;
+                }
+                if (!patternPass.test(password.value)) {
+                    password.style.backgroundColor = 'red';
+                    isLogin = false;
+                }
+                if (isLogin) {
+                    noLogin.style.display = 'none';
+                    unLogin.style.display = 'block';
+                    window.sessionStorage.isLogin = true;
+                }
+            }
+            login.onfocus = function() {
+                login.style.backgroundColor = 'unset';
+            }
+            password.onfocus = function() {
+                password.style.backgroundColor = 'unset';
+            }
+        }
+    </script>
+    <style>
+        .noLogin, .unLogin {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="noLogin">
+        <form action="">
+            <label for="login">Login</label><br>
+            <input type="text" name="login" id="login"><br><br>
+            <label for="password">Password</label><br>
+            <input type="password" name="password" id="password"><br><br>
+            <input type="submit" name="btnLogin" id="btnLogin" value="Login">
+        </form>
+    </div>
+    <div class="unLogin">
+        <button id="logout">Log out</button>
+    </div>
+</body>
+</html>
