@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 12 - 02</title>
+    <style>
+        div {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            let form = document.querySelector('form');
+            let width = document.querySelector('#width');
+            let height = document.querySelector('#height');
+            let elipse = document.querySelector('#elipse');
+            let btn = document.querySelector('#btn');
+            let draw = document.querySelector('.draw');
+            btn.disabled = true;
+            let W;
+            let H;
+            form.onchange = function() {
+                if (width.value && height.value) {
+                    console.log('width = ' + width.value);
+                    console.log('height = ' + height.value);
+                    if (!isNaN(Number(width.value)) && !isNaN(Number(height.value))) {
+                        btn.disabled = false;
+                        W = width.value;
+                        H = height.value;
+                    }
+                    else btn.disabled = true;
+                }
+                else btn.disabled = true;
+            }
+            btn.onclick = function(){
+                console.log('elipse = ' + elipse.checked);
+                if (elipse.checked) {
+                    draw.innerHTML = `<svg style="width: ${W}px; height: ${H}px">
+                        <ellipse cx="${W/2}" cy="${H/2}" rx="${W/2-1}" ry="${H/3}" stroke="black" stroke-width="1" fill="blue" />
+                        </svg>`;
+                }
+                else {
+                    draw.innerHTML = `<svg style="width: ${W}px; height: ${H}px">
+                        <rect width="${W-1}" height="${H-1}" style="fill: rgb(0,0,255); stroke-width:1; stroke:#00ff34" />
+                        </svg>`;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="#">
+        <div>
+            <label for="width">Width</label>
+            <input type="text" name="width" id="width">
+        </div>
+        <div>
+            <label for="height">Height</label>
+            <input type="text" name="heigth" id="height">
+        </div>
+        <div><input type="checkbox" name="elipse" id="elipse">Elipse</div>
+        <div>
+            <input type="button" name="btn" id="btn" value="Send">
+        </div>
+        <div class="draw">
+
+        </div>
+    </form>
+</body>
+</html>

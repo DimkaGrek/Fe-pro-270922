@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 12 - 04</title>
+    <script>
+        window.onload = () => {
+            let canvas = document.querySelector('canvas');
+            if (canvas.getContext) {
+                const ctx = canvas.getContext("2d");
+                let fontSize;
+                while (true) {
+                    fontSize = Number(prompt('Input font size'));
+                    if (fontSize) { 
+                        break;
+                    }
+                }
+                ctx.font = `${fontSize}px Arial`;
+                let text = 'This is some text';
+                const widthText = Math.ceil(ctx.measureText(text).width);
+                const offset = 30;
+                canvas.setAttribute('width', widthText + offset*2);
+                canvas.setAttribute('height', widthText + offset*2);
+                ctx.font = `${fontSize}px Arial`;
+                const radius = widthText / 2;
+                
+                ctx.fillText(text, offset, radius + offset);
+
+                ctx.beginPath();
+                ctx.arc(radius + offset, radius + offset, radius + 10, 0, Math.PI * 2); // Outer circle
+                ctx.stroke();
+               
+            }
+            else {
+                document.write('Your browser does not support canvas. Sorry :(');
+            }
+        }
+    </script>
+</head>
+<body>
+    <canvas width="300" height="300"></canvas>
+</body>
+</html>

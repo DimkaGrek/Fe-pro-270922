@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 12 - additional</title>
+    <script>
+        window.onload = () => {
+            const coords = [
+                {x:10, y: 10},
+                {x:20, y: 20},
+                {x:25, y: 10},
+                {x:30, y: 30},
+                {x:40, y: 50},
+                {x:50, y: 10},
+                {x:60, y: 70}
+            ];
+            let canvas = document.querySelector('canvas');
+            function drawDiagram(data, color) {
+                let ctx = canvas.getContext("2d");
+                const startX = 10;
+                const startY = 210;
+                ctx.beginPath();
+                ctx.moveTo(startX, startY - 200);
+                ctx.lineTo(startX, startY);
+                ctx.lineTo(startY, startY);
+                ctx.strokeStyle = 'black';
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.strokeStyle = color;
+                ctx.moveTo(startX + data[0].x, startY - data[0].y);
+                // console.log(`x = ${startX + data[0].x}, y = ${startY - data[0].y}`);
+                for (let i = 1; i<data.length; i++) {
+                    ctx.lineTo(startX + data[i].x * 2, startY - data[i].y * 2);
+                    // console.log(`x = ${startX + data[i].x * 2}, y = ${startY - data[i].y * 2}`);
+                }
+                ctx.stroke();
+            }
+            drawDiagram(coords, 'red');
+        }
+
+    </script>
+</head>
+<body>
+    <canvas width="300" height="300"></canvas>
+</body>
+</html>

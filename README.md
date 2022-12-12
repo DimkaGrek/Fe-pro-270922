@@ -11,3 +11,4 @@
 [homework 10](https://dimkagrek.github.io/Fe-pro-270922/hw10/ "to see homework 10")  
 [homework 10-pizza](https://dimkagrek.github.io/Fe-pro-270922/hw10-pizza/ "to see homework 10 pizza")  
 [homework 11](https://dimkagrek.github.io/Fe-pro-270922/hw11/ "to see homework 11")  
+[homework 12](https://dimkagrek.github.io/Fe-pro-270922/hw12/ "to see homework 12")  
