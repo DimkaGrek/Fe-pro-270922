@@ -45,6 +45,9 @@
             justify-content: center;
             overflow: auto;
         }
+        progress {
+          width: 20%;
+        }
     </style>
 </head>
 <body>
@@ -52,10 +55,27 @@
         <button class="size">Sort by size</button>
         <button class="population">Sort by population</button>
     </div>
-    <div class="loading"><h1>WAITING FOR LOADING ...</h1></div>
+    <div class="loading">
+        <h1>WAITING FOR LOADING ...</h1>
+        <progress id="elem"></progress>
+    </div>
     <div class="planets">
         
     </div>
 
+    <script>
+        function animate({duration, draw, timing}) {
+            let start = performance.now();
+            requestAnimationFrame(function animate(time) {
+                let timeFraction = (time - start) / duration;
+                if (timeFraction > 1) timeFraction = 1;
+                let progress = timing(timeFraction)
+                draw(progress);
+                if (timeFraction < 1) {
+                    requestAnimationFrame(animate);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
