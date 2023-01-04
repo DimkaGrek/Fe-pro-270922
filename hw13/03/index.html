@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planets</title>
+    <script src="script.js"></script>
+    <style>
+        .planets{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            text-align: center;
+            
+        }
+        .info {
+            /* display: none; */
+            background-color: #ccc;
+            position: fixed;
+            overflow-wrap: break-word;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .info table{
+            width: 100%;
+        }
+        .right {
+            text-align: right;
+            overflow-wrap: break-word;
+        }
+        .left {
+            text-align: left;
+            overflow-wrap: break-word;
+        }
+        .loading {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button class="size">Sort by size</button>
+        <button class="population">Sort by population</button>
+    </div>
+    <div class="loading"><h1>WAITING FOR LOADING ...</h1></div>
+    <div class="planets">
+        
+    </div>
+
+</body>
+</html>

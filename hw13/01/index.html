@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogs</title>
+    <script>
+        window.onload = () => {
+            let div = document.querySelector('div');
+            let breeds = document.querySelector('.breeds');
+            async function getDogList(){
+                let responce = await fetch('https://dog.ceo/api/breeds/list/all');
+                    if (responce.status == 200) {
+                        let text = responce.text().then(function(data){
+                            let dogs = JSON.parse(data).message;
+                            for(let dog in dogs) {
+                                let li = document.createElement('li');
+                                li.innerHTML = `<a href="" name="${dog}">${dog}</a>`;
+                                li.classList.add(dog);
+                                if(dogs[dog].length > 0) {
+                                    const ulSub = document.createElement('ul');
+                                    for (let i=0; i<dogs[dog].length; i++){
+                                        let liSub = document.createElement('li');
+                                        liSub.classList.add(dogs[dog][i]);
+                                        liSub.innerHTML = `<a href="" name="${dog}/${dogs[dog][i]}" class="${dogs[dog][i]}">${dogs[dog][i]}</a>`;
+                                        ulSub.appendChild(liSub);
+                                    }
+                                    li.appendChild(ulSub);
+
+                                }
+                                breeds.append(li);
+                              
+                            };
+                            console.log(dogs);
+                        });
+                    }
+                    else console.log('Error connection');
+            }
+            async function getPicture(breed){
+                let url = `https://dog.ceo/api/breed/${breed}/images/random`;
+                let responce = await fetch(url);
+                if (responce.status == 200) {
+                    return await responce.json();
+                }
+                else console.log('Error connection');
+            }
+            getDogList();
+            document.addEventListener('click', function(e){
+                e.preventDefault();
+                
+                if(e.target.tagName === 'A') {
+                    let divImage = document.querySelector('.dog-image');
+                    if (divImage) {
+                        divImage.remove();
+                    }
+                    let breedName = e.target.name;
+                    let breedClass = e.target.className;
+                    if(breedClass) console.log(breedClass);
+                    console.log(breedName);
+                    getPicture(breedName).then(function(data){
+                        console.log(data.message);
+                        urlPicture = data.message;
+                        let liClass = breedName;
+                        if(breedClass) {
+                            liClass = breedClass;
+                        }
+                        let liBreed = document.querySelector('.' + liClass);
+                        console.log(liBreed);
+                        let divPic = document.createElement('div');
+                        divPic.classList.add('dog-image');
+                        const img = new Image();
+                        img.src = urlPicture;
+                        img.onload = function() {
+                            console.log(this.width);
+                            if(this.width>300) this.width=300;
+                            img.alt = breedName;
+                            console.log(img.width);
+                            divPic.appendChild(img);
+                            liBreed.appendChild(divPic);
+                        }
+                    })
+
+                }
+                
+            })
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Dog's breeds</h1>
+    <div>
+        <ul class="breeds">
+           
+        </ul>
+    </div>
+</body>
+</html>
