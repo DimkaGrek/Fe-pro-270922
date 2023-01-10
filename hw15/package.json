@@ -1,0 +1,24 @@
+{
+  "name": "hw15",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-image": "^6.3.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-minify": "^3.1.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.27.11",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.57.1"
+  }
+}

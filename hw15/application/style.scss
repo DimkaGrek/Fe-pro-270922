@@ -1,0 +1,42 @@
+$font:Arial, Helvetica, sans-serif;
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+.card {
+    width: 500px;
+    height: 250px;
+    background-image: url('background.jpg');
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    font-family: $font;
+    margin-bottom: 20px;
+}
+.company{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.name{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.bottom{
+    display: flex;
+}
+.contacts p, .address p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+.contacts{
+    text-align: left;
+    flex: auto;
+}
+.address{
+    text-align: right;
+}
+span {
+    font-weight: bold;
+}
